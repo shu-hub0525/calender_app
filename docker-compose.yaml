@@ -1,9 +1,8 @@
 #node_modulesのボリュームを別でマウントする
 volumes:
-   frontend_node_modules:
-   mysql_data:
+  frontend_node_modules:
+  mysql_data:
 services:
-
   #フロントエンドコンテナ
   fe:
     container_name: calender-app-frontend
@@ -11,7 +10,7 @@ services:
       context: .
       dockerfile: ./.dockerfiles/Dockerfile.frontend
     env_file:
-        - .env
+      - .env
     ports:
       - "${FRONTEND_PORT}:${FRONTEND_PORT}"
     expose:
@@ -22,7 +21,7 @@ services:
       - frontend_node_modules:/frontend_react/node_modules
     networks:
       - default
-  
+
   #バックエンドコンテナ
   be:
     container_name: calender-app-backend
@@ -30,7 +29,7 @@ services:
       context: .
       dockerfile: ./.dockerfiles/Dockerfile.backend
     env_file:
-        - .env
+      - .env
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
     expose:
@@ -50,7 +49,7 @@ services:
       context: .
       dockerfile: ./.dockerfiles/Dockerfile.database
     env_file:
-        - .env
+      - .env
     ports:
       - ${DATABASE_PORT}:${DATABASE_PORT}
     volumes:
@@ -69,4 +68,3 @@ services:
 networks:
   default:
     driver: bridge
-
