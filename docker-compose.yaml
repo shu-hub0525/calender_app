@@ -1,10 +1,15 @@
-#node_modulesのボリュームを別でマウントする
 volumes:
   frontend_node_modules:
   mysql_data:
+<<<<<<< HEAD
 
     #ホットリロード機能を有効にするための設定
 x-develop: &default-develop
+=======
+ 
+x-develop:
+  &default-develop
+>>>>>>> 0615e237625603597d3b4629b2ce6c22cbd1f54a
   watch:
     - path: ./frontend_react
       target: /frontend_react
@@ -12,7 +17,11 @@ x-develop: &default-develop
     - path: ./backend_fastapi
       target: /backend_fastapi
       action: sync
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 0615e237625603597d3b4629b2ce6c22cbd1f54a
 services:
   #フロントエンドコンテナ
   fe:
@@ -37,7 +46,11 @@ services:
         - path: ./frontend_react
           target: /frontend_react
           action: sync
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 0615e237625603597d3b4629b2ce6c22cbd1f54a
   #バックエンドコンテナ
   be:
     container_name: calender-app-backend
@@ -62,7 +75,11 @@ services:
         - path: ./backend_fastapi
           target: /backend_fastapi
           action: sync
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 0615e237625603597d3b4629b2ce6c22cbd1f54a
   #データベースコンテナ
   db:
     container_name: calender-app-database
@@ -85,7 +102,8 @@ services:
       TZ: Asia/Tokyo
     networks:
       - default
-
+ 
 networks:
   default:
     driver: bridge
+ 
