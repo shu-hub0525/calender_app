@@ -32,26 +32,29 @@ const AdminLoginPage: React.FC = () => {
     }
   };
 
-  return (
-    <>
-      <Header title="管理者ログイン" />
-      <form onSubmit={handleSubmit}>
+    return (
+    //<Header title="管理者ログイン" />
+    <div className="login-container">
+      <div className="login-title">NakaLab App</div>
+      <div className="login-subtitle">管理者</div>
+      <form className="login-form" onSubmit={handleSubmit}>
         <div>
-          <label>メールアドレス</label>
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
+          <label>ID</label>
+          <input className="login-input" type="email" value={email} onChange={e => setEmail(e.target.value)} required />
         </div>
         <div>
           <label>パスワード</label>
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
+          <input className="login-input" type="password" value={password} onChange={e => setPassword(e.target.value)} required />
         </div>
         <div>
           <label>管理者コード</label>
-          <input type="number" value={adminCode} onChange={e => setAdminCode(e.target.value)} required />
+          <input className="login-input" type="number" value={adminCode} onChange={e => setAdminCode(e.target.value)} required />
         </div>
-        <button type="submit">ログイン</button>
+        <button className="login-button" type="submit">ログイン</button>
         {error && <div style={{color:"red"}}>{error}</div>}
       </form>
-    </>
+    </div>
+      
   );
 };
 
