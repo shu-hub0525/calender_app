@@ -3,7 +3,7 @@ volumes:
   frontend_node_modules:
   mysql_data:
 
-
+    #ホットリロード機能を有効にするための設定
 x-develop: &default-develop
   watch:
     - path: ./frontend_react
