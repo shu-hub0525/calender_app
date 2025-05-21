@@ -33,6 +33,7 @@ const AdminLoginPage: React.FC = () => {
     }
   };
 
+
   return (
     //<Header title="管理者ログイン" />
     <div className="login-container">
