@@ -2,6 +2,17 @@
 volumes:
   frontend_node_modules:
   mysql_data:
+
+
+x-develop: &default-develop
+  watch:
+    - path: ./frontend_react
+      target: /frontend_react
+      action: sync
+    - path: ./backend_fastapi
+      target: /backend_fastapi
+      action: sync
+
 services:
   #フロントエンドコンテナ
   fe:
@@ -21,6 +32,11 @@ services:
       - frontend_node_modules:/frontend_react/node_modules
     networks:
       - default
+    develop:
+      watch:
+        - path: ./frontend_react
+          target: /frontend_react
+          action: sync
 
   #バックエンドコンテナ
   be:
@@ -41,6 +57,11 @@ services:
       - default
     depends_on:
       - db
+    develop:
+      watch:
+        - path: ./backend_fastapi
+          target: /backend_fastapi
+          action: sync
 
   #データベースコンテナ
   db:
