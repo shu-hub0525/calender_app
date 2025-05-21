@@ -1,4 +1,5 @@
 import Header from "../../../components/header/header";
+import './LoginPage.css';
 import { useState } from "react";
 
 const AdminLoginPage: React.FC = () => {
@@ -32,7 +33,8 @@ const AdminLoginPage: React.FC = () => {
     }
   };
 
-    return (
+
+  return (
     //<Header title="管理者ログイン" />
     <div className="login-container">
       <div className="login-title">NakaLab App</div>
